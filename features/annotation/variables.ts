@@ -29,13 +29,12 @@ const logNumber: (i: number) => void = (i: number) => {
     console.log(i);
 };
 
-// when to use annotations
+// when to use annotations:
 // 1) function that returns the any type
 const json = '{"x": 10, "y": 20}';
 const coordinates: { x: number; y: number } = JSON.parse(json);
 
 // 2 ) when we declare a variable on one line and initialize it later
-
 // let fruit; // problematic
 let fruit: boolean; // solution
 
@@ -44,5 +43,15 @@ const array = ["red", "green", "yellow", "orange"];
 for (let i = 0; i < array.length; i++) {
     if (array[i] === "orange") {
         fruit = true;
+    }
+}
+
+// 3) variables whose rtpe cannot be inferred correctly
+let numbers = [-10, -1, 12];
+let numberAboveZero: boolean | number = false;
+
+for (let i = 0; i < numbers.length; i++) {
+    if (numbers[1] > 0) {
+        numberAboveZero = numbers[i];
     }
 }
